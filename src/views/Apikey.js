@@ -2,57 +2,46 @@ import { setApiKey } from "../lib/apiKey.js";
 import { navigateTo } from "../router.js";
 
 const ApiKey = () => {
-    const containerApikey = document.createElement("div");
-    containerApikey.classList.add("containerapikey");
-  
-    
-  
-    const formContainer = document.createElement("div");
-    formContainer.classList.add("form-Container");
-    containerApikey.appendChild(formContainer);
-  
-    const titleApikey = document.createElement("h1");
-    titleApikey.classList.add("title");
-    titleApikey.textContent = "Api Key";
-    formContainer.appendChild(titleApikey);
-  
-    const inputApiKeyText = document.createElement("input");
-    inputApiKeyText.setAttribute("type", "text");
-    inputApiKeyText.setAttribute("placeholder", "Escribe aqui tu ApiKey");
-    inputApiKeyText.classList.add("message-api-key-input");
-    formContainer.appendChild(inputApiKeyText);
-  
-    const saveButton = document.createElement("button");
-    saveButton.classList.add("apiKey-save-button");
-    saveButton.textContent = "Guardar";
-    formContainer.appendChild(saveButton);
-  
-    saveButton.addEventListener("click", () => {
-      if (inputApiKeyText.value === "") {
-        alert("Debes ingresar una ApiKey valida");
-        saveButton.disabled = true;
-      } else {
-        saveButton.disabled = false;
-        setApiKey(inputApiKeyText.value);
-        inputApiKeyText.value= "";
-      }
-    });
+  const viewEl = document.createElement("div");
+  const viewApiKey = `
+  <div class="containerapikey">
+    <div class="Container">
+      <h1 class="title">API Key</h1>
+      <input type="text" class="message-api-key-input" id="input-api-key" placeholder="Escribe la ApiKey" />
+      <button class="apiKey-save-button" id="api-key-button">Guardar</button>
+      <button class="back-button" id="back-button">Volver</button>
+      <p id="save-confirmation" class="save-confirmation">API Key guardada correctamente</p>
+    </div>
+  </div>
+`;
 
-    // Crear el botón
-    const backButton = document.createElement("button");
-    // Crear el texto del botón
-    const backButtonText = document.createTextNode("Volver");
-    // Agregar el texto al botón
-    backButton.appendChild(backButtonText);
-    // Añadir una clase al botón (opcional)
-    backButton.classList.add("back-button");
-    // Añadir el botón al contenedor
-    containerApikey.appendChild(backButton);
-        backButton.addEventListener("click", () => {
-        navigateTo("/");
-        });
+  viewEl.innerHTML = viewApiKey;
 
-    return containerApikey;
-  };
-  
-  export default ApiKey;
+  const apiKeyButton = viewEl.querySelector("#api-key-button");
+  const saveConfirmation = viewEl.querySelector("#save-confirmation");
+
+  apiKeyButton.addEventListener("click", function () {
+    const apiKeyInput = viewEl.querySelector("#input-api-key").value;
+    if (apiKeyInput === "") {
+      alert("Debes ingresar una ApiKey válida");
+      apiKeyButton.disabled = true;
+    } else {
+      apiKeyButton.disabled = false;
+      setApiKey(apiKeyInput);
+      viewEl.querySelector("#input-api-key").value = ""; // Limpiar el input después de guardar la API Key
+      saveConfirmation.style.display = "block"; // Mostrar mensaje de confirmación
+      setTimeout(() => {
+        saveConfirmation.style.display = "none"; // Ocultar mensaje de confirmación después de 3 segundos
+      }, 3000);
+    }
+  });
+
+  const backButton = viewEl.querySelector("#back-button");
+  backButton.addEventListener("click", () => {
+    navigateTo("/");
+  });
+
+  return viewEl;
+};
+
+export default ApiKey;

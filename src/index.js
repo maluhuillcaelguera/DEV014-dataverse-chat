@@ -1,4 +1,4 @@
-import Home from "./views/Home.js";
+import {Home} from './views/Home.js';
 import {Error} from './views/Error.js';
 import ApiKey from "./views/Apikey.js";
 import {Personajes} from './views/Personajes.js';

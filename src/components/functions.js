@@ -13,7 +13,8 @@ export const renderItems = (data) => {
 
     // Asignar la clase item al <li>
     liElement.classList.add("item");
-
+    // Configuramos el ID del personaje como un atributo data en el elemento li
+    liElement.dataset.id = item.id;
     // Asignar el contenido del item a los elementos correspondientes
     liImg.src = item.imageUrl;
     liName.textContent = item.name;
@@ -31,15 +32,23 @@ export const renderItems = (data) => {
     liDetails.setAttribute("itemprop", "details");
 
     // Agregar los elementos al <li> en el orden deseado
-    liElement.appendChild(liName); // Nombre arriba
-    liElement.appendChild(liShortDescription); // Descripción corta arriba
-    liElement.appendChild(liImg); // Imagen en medio
-    liElement.appendChild(liDetails); // Información abajo
+    liElement.appendChild(liName); 
+    liElement.appendChild(liShortDescription); 
+    liElement.appendChild(liImg); 
+    liElement.appendChild(liDetails); 
 
+   // Agregar un evento clic a cada tarjeta para redirigir a la página de detalles
+   liElement.addEventListener('click', function() {
+    const personajeId = this.dataset.id; // Obtener el ID del personaje del atributo data
+    const url = `/Personajes?id=${personajeId}`; // Construir la URL de la página de detalles
+    window.location.href = url; // Redirigir a la URL
+});
+
+    
     // Agregar el <li> al <ul>
     ulElement.appendChild(liElement);
   });
 
-  // Retornar el elemento <ul>
+  
   return ulElement;
 };
