@@ -95,10 +95,11 @@ export const Personajes = (props) => {
     const sendMessage = chatp.querySelector("#send-message");
     const inputMessage = chatp.querySelector("#message-input");
 
+    //funcion para la hora en la burbuja
     function formatTime(date) {
         return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
     }
-
+    //funcion par enviar mensaje 
     function createUserMessage(messageContent) {
         const userMessageDiv = document.createElement("div");
         userMessageDiv.classList.add("user-message");
@@ -122,6 +123,7 @@ export const Personajes = (props) => {
         return userMessageDiv;
     }
 
+    //mensaje generado por la ia 
     function createIAMessage(messageContent) {
         const IAMessageDiv = document.createElement("div");
         IAMessageDiv.classList.add("ia-message");
@@ -148,9 +150,9 @@ export const Personajes = (props) => {
 
         return IAMessageDiv;
     }
-
+//evento para  enviar un mensaje a la interfaz 
     async function sendMessageHandler() {
-        try {
+        try {//llamando a la funcion communicateWithOpenAI
             const respuesta = await communicateWithOpenAI(inputMessage.value, personajeId);
             const messageContent = respuesta[0][0].message.content;
             console.log(respuesta)
@@ -184,12 +186,12 @@ export const Personajes = (props) => {
             inputMessage.value = "";
         }
     }
-
+   //evento para boton enviar mensaje
     sendMessage.addEventListener("click", (e) => {
         e.preventDefault();
         sendMessageHandler();
     });
-
+    //evento para boton volver
     const backButton = chatp.querySelector('.back-icon');
     backButton.addEventListener('click', () => {
         navigateTo("/");

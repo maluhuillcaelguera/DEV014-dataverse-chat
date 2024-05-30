@@ -1,0 +1,29 @@
+[33mcommit 1744ff26f0ef98cd93ba4552383e5e66eb41a90d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mApikey[m[33m)[m
+Author: maluhuillcaelguera <maluhuillcaelguera@gmail.com>
+Date:   Wed May 29 23:13:38 2024 -0500
+
+    subiendo todo el proyecto de datavers-chat
+
+[33mcommit fb9b81058d2c30e6113eb49f502da4509b788a23[m
+Author: maluhuillcaelguera <maluhuillcaelguera@gmail.com>
+Date:   Wed May 29 23:05:18 2024 -0500
+
+    subiendo todo el proyecto de datavers-chat
+
+[33mcommit 2f4e7a230677758a262ec880c21b8ebc3d71af73[m[33m ([m[1;31morigin/Apikey[m[33m)[m
+Author: maluhuillcaelguera <maluhuillcaelguera@gmail.com>
+Date:   Tue May 7 10:42:55 2024 -0500
+
+    subiendo interface de dataverse con los fintros incluidos, tambien subiendo vistas del apikey, chat grupal,error y chat individua
+
+[33mcommit e79182a63505db8e69bae4a43a048a6c03f7ef26[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: AlexisJoselyn <pfernandez.alexis@gmail.com>
+Date:   Thu Mar 21 03:21:26 2024 -0500
+
+    chore(init): Adds project files from curriculum
+
+[33mcommit 8105f7f85c41bfb03da2ca87fa84764907703bc4[m
+Author: AlexisJoselyn <pfernandez.alexis@gmail.com>
+Date:   Thu Mar 21 03:19:18 2024 -0500
+
+    chore(init): Adds project files from curriculum

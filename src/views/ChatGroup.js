@@ -7,12 +7,12 @@ export const ChatGroup = () => {
     const containerChat = document.createElement("div");
     containerChat.classList.add("containerchat");
 
-    // Contenedor para los personajes
+    
     const grupalPersonajesContainer = document.createElement("div");
     grupalPersonajesContainer.classList.add("grupal-personajes-container");
     containerChat.appendChild(grupalPersonajesContainer);
 
-    // Contenedor para el desplazamiento de los personajes
+   
     const grupalPersonajesScroll = document.createElement("div");
     grupalPersonajesScroll.classList.add("grupal-personajes-scroll");
     grupalPersonajesContainer.appendChild(grupalPersonajesScroll);
