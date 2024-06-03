@@ -53,7 +53,4 @@ export const onURLChange = (location) => {
   renderView(pathname, searchParams);
 };
 
-  const searchParams = queryStringToObject(queryString);
-
-  renderView(pathname, searchParams);
-};
+ 
