@@ -10,7 +10,7 @@ export const setRoutes = (routes) => {
   if (typeof routes !== "object") {
     throw new Error("This is not an object");
   }
-  // Lanzar un error si rutas no define una ruta /error dafw
+  // Lanzar un error si rutas no define una ruta /error
   if (!routes["/error"]) {
     throw new Error(
       "Routes must define an /error route with a function handler"
@@ -36,21 +36,22 @@ const queryStringToObject = (queryString) => {
   const obj = Object.fromEntries(params);
   return obj;
 };
+
+
 export const navigateTo = (pathname, props = {}) => {
-  const queryString = Object.keys(props)
-    .map((key) => `${key}=${props[key]}`)
-    .join("&");
-
-  const fullPath = `${pathname}?${queryString}`;
-
-  window.history.pushState({}, "", fullPath);
-
+  window.history.pushState({}, pathname, `${window.location.origin + pathname}${props ? "?id=" + props.id : ""}` );
+  window.scroll(0,0);
   renderView(pathname, props);
 };
 
 export const onURLChange = (location) => {
   const { pathname } = location;
   const queryString = new URLSearchParams(location.search);
+
+  const searchParams = queryStringToObject(queryString);
+
+  renderView(pathname, searchParams);
+};
 
   const searchParams = queryStringToObject(queryString);
 
