@@ -10,7 +10,7 @@ export const setRoutes = (routes) => {
   if (typeof routes !== "object") {
     throw new Error("This is not an object");
   }
-  // Lanzar un error si rutas no define una ruta /error
+  // Lanzar un error si rutas no define una ruta /error dafw
   if (!routes["/error"]) {
     throw new Error(
       "Routes must define an /error route with a function handler"
